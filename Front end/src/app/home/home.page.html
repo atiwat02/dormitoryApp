@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+    </ion-buttons>
+    <ion-title>รายการพัสดุ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true">
+  <div>
+    <br>
+    <ion-list *ngFor="let item of parcelall ">
+      <ion-item *ngIf="item.status===0">
+        <ion-label>{{item.name}}</ion-label>
+        <ion-label>{{item.Day.split("T")[0]}}</ion-label>
+        <ion-button color="secondary" (click)="parcel(item)">></ion-button>
+      </ion-item>
+    </ion-list>
+
+
+  </div>
+</ion-content>
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="speakers" [routerLink]="['/home']">
+    <ion-icon name="home-sharp"></ion-icon>
+    <ion-label></ion-label>
+  </ion-tab-button>
+  <ion-tab-button tab="speakers" [routerLink]="['/personal']">
+    <ion-icon name="stats-chart-sharp"></ion-icon>
+    <ion-label>สถิติ</ion-label>
+  </ion-tab-button>
+  <ion-tab-button (click)="logout()">
+    <ion-icon name="log-out-outline"></ion-icon>
+  </ion-tab-button>
+
+</ion-tab-bar>

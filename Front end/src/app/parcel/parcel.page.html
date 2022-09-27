@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon name="arrow-undo-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>รายละเอียดพัสดุ</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-label>ชื่อ-สกุล : {{name}}</ion-label><br /><br />
+      <ion-label>เลขห้อง : {{room_number}}</ion-label><br /><br />
+      <ion-label>หมายเลขพัสดุ : {{parcel_number}}</ion-label><br /><br />
+      <ion-label>วันที่เพิ่มพัสดุ : {{Day}}</ion-label><br /><br />
+      <ion-label>บริษัทขนส่ง : {{company}}</ion-label><br /><br />
+      <ion-label>ผู้บันทึก: {{recipient}}</ion-label><br /><br />
+      <ion-label>วันที่รับพัสดุ : {{up_day}}</ion-label><br /><br />
+      
+
+
+    </ion-card-header>
+ 
+    <ion-slides *ngIf="this.status===1">
+      <img src="http://localhost:8080/{{this.imge}}">
+
+    </ion-slides><br /><br />
+
+    <div class="ion-text-center" *ngIf="this.role==='admin'&&this.status===0" >
+      <ion-button  color="secondary" (click)="Create()">รับพัสดุ</ion-button>
+
+    </div>
+
+  </ion-card>
+ 
+
+</ion-content>
